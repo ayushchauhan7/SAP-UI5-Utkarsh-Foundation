@@ -1,0 +1,429 @@
+/* =========================================================
+   GLOBAL
+   ========================================================= */
+
+html,
+body,
+#content,
+#app {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "72", "72full", Arial, sans-serif;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.sapMPage {
+    background: var(--sapBackgroundColor) !important;
+}
+
+.sapMPage > section {
+    background: var(--sapBackgroundColor);
+}
+
+
+/* =========================================================
+   MAIN HEADER
+   ========================================================= */
+
+#mainToolbar {
+    min-height: 4rem;
+
+    padding: 0 1.5rem;
+
+    background: var(--sapShellColor);
+
+    border-bottom: 1px solid var(--sapList_BorderColor);
+
+    box-shadow: var(--sapContent_Shadow0);
+}
+
+#applicationTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   KPI CARDS
+   ========================================================= */
+
+.kpiContainer {
+    gap: 1rem;
+
+    padding: 1.25rem;
+}
+
+.kpiCard {
+    flex: 1;
+
+    min-width: 12rem;
+
+    padding: 1.25rem;
+
+    background: var(--sapGroup_ContentBackground);
+
+    border: 1px solid var(--sapGroup_ContentBorderColor);
+
+    border-radius: 12px;
+
+    box-shadow: var(--sapContent_Shadow0);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.kpiCard:hover {
+    transform: translateY(-2px);
+
+    box-shadow: var(--sapContent_Shadow1);
+}
+
+.kpiLabel {
+    color: var(--sapContent_LabelColor);
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+    margin-bottom: 0.5rem;
+}
+
+.kpiNumber {
+    font-size: 1.6rem;
+}
+
+
+/* =========================================================
+   FILTER BAR
+   ========================================================= */
+
+#filterToolbar {
+    margin: 0 1.25rem 1rem 1.25rem;
+
+    padding: 0.5rem 0.75rem;
+
+    background: var(--sapGroup_ContentBackground);
+
+    border: 1px solid var(--sapGroup_ContentBorderColor);
+
+    border-radius: 10px;
+
+    box-shadow: var(--sapContent_Shadow0);
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.productTable {
+    margin: 0 1.25rem 1.25rem 1.25rem;
+
+    border: 1px solid var(--sapGroup_ContentBorderColor);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+
+    background: var(--sapGroup_ContentBackground);
+
+    box-shadow: var(--sapContent_Shadow0);
+}
+
+
+/* =========================================================
+   TABLE TOOLBAR
+   ========================================================= */
+
+#productToolbar {
+    min-height: 3.75rem;
+
+    padding: 0 1rem;
+
+    background: var(--sapGroup_ContentBackground);
+
+    border-bottom: 1px solid var(--sapList_BorderColor);
+}
+
+#productTitle {
+    font-size: 1.15rem;
+
+    font-weight: 700;
+}
+
+.resultCount {
+    color: var(--sapContent_LabelColor);
+
+    font-size: 0.8rem;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+#productTable .sapMListTblHeaderCell {
+    background: var(--sapList_HeaderBackground);
+
+    border-bottom: 1px solid var(--sapList_BorderColor);
+}
+
+#productTable .sapMListTblHeaderCell .sapMText {
+    font-weight: 700;
+
+    color: var(--sapList_HeaderTextColor);
+}
+
+
+/* =========================================================
+   TABLE ROWS
+   ========================================================= */
+
+#productTable .sapMListTblRow {
+    transition:
+        background-color 0.15s ease,
+        transform 0.1s ease;
+}
+
+#productTable .sapMListTblRow:hover {
+    background: var(--sapList_Hover_Background);
+}
+
+#productTable .sapMListTblCell {
+    border-bottom: 1px solid var(--sapList_BorderColor);
+}
+
+
+/* Product ID */
+
+#productTable .sapMListTblCell:nth-child(2) .sapMText {
+    font-family: "72Mono", Consolas, monospace;
+
+    font-size: 0.85rem;
+
+    color: var(--sapContent_LabelColor);
+}
+
+
+/* Product Name */
+
+#productTable .sapMObjectIdentifierTitle {
+    font-weight: 600;
+}
+
+
+/* Price */
+
+#productTable .sapMObjectNumberText {
+    font-weight: 700;
+}
+
+
+/* =========================================================
+   PRODUCT DETAILS
+   ========================================================= */
+
+#productHero {
+    margin: 1.25rem;
+
+    padding: 1.5rem;
+
+    background: var(--sapGroup_ContentBackground);
+
+    border: 1px solid var(--sapGroup_ContentBorderColor);
+
+    border-radius: 14px;
+
+    box-shadow: var(--sapContent_Shadow0);
+}
+
+#productHeroContent {
+    gap: 2rem;
+}
+
+
+/* Product Image */
+
+#productImageContainer {
+    width: 280px;
+
+    min-width: 280px;
+
+    height: 240px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--sapBackgroundColor);
+
+    border: 1px solid var(--sapGroup_ContentBorderColor);
+
+    border-radius: 12px;
+
+    overflow: hidden;
+}
+
+#productImage {
+    object-fit: contain;
+}
+
+
+/* Object Header */
+
+#productHero #productObjectHeader {
+    flex: 1;
+
+    margin: 0;
+
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+}
+
+
+/* =========================================================
+   DETAIL PANELS
+   ========================================================= */
+
+#descriptionPanel,
+#inventoryPanel,
+#supplierPanel,
+#dimensionsPanel {
+
+    margin: 1rem 1.25rem;
+
+    border: 1px solid var(--sapGroup_ContentBorderColor);
+
+    border-radius: 12px;
+
+    background: var(--sapGroup_ContentBackground);
+
+    overflow: hidden;
+
+    box-shadow: var(--sapContent_Shadow0);
+}
+
+
+/* Panel header */
+
+#descriptionPanel .sapMPanelHdr,
+#inventoryPanel .sapMPanelHdr,
+#supplierPanel .sapMPanelHdr,
+#dimensionsPanel .sapMPanelHdr {
+
+    background: var(--sapGroup_ContentBackground);
+
+    border-bottom: 1px solid var(--sapList_BorderColor);
+
+    font-weight: 700;
+}
+
+
+/* Panel content */
+
+#descriptionPanel .sapMPanelContent,
+#inventoryPanel .sapMPanelContent,
+#supplierPanel .sapMPanelContent,
+#dimensionsPanel .sapMPanelContent {
+
+    background: var(--sapGroup_ContentBackground);
+
+    padding: 1.25rem;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .kpiCard {
+        min-width: calc(50% - 1rem);
+    }
+
+    #productImageContainer {
+        width: 220px;
+        min-width: 220px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .kpiContainer {
+        padding: 0.75rem;
+    }
+
+    .kpiCard {
+        min-width: calc(50% - 0.5rem);
+    }
+
+    #filterToolbar {
+        margin: 0 0.75rem 0.75rem 0.75rem;
+    }
+
+    #productTable {
+        margin: 0 0.75rem 0.75rem 0.75rem;
+    }
+
+    #productSearch {
+        width: 14rem !important;
+    }
+
+    #productHeroContent {
+        flex-direction: column;
+    }
+
+    #productImageContainer {
+        width: 100%;
+        min-width: 0;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .kpiCard {
+        min-width: 100%;
+    }
+
+    #productSearch {
+        width: 100% !important;
+    }
+
+    #filterToolbar {
+        height: auto;
+    }
+
+    #productTable {
+        margin: 0;
+        border-radius: 0;
+    }
+
+    #productHero {
+        margin: 0.5rem;
+    }
+
+    #descriptionPanel,
+    #inventoryPanel,
+    #supplierPanel,
+    #dimensionsPanel {
+        margin: 0.5rem;
+    }
+}

@@ -1,0 +1,180 @@
+<mvc:View xmlns:form="sap.ui.layout.form"
+    controllerName="project1.controller.ProductDetails"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+
+    <Page
+        id="productDetailsPage"
+        title="Product Details"
+        showNavButton="true"
+        navButtonPress=".onNavBack">
+
+        <content>
+
+            <ObjectHeader
+                id="productObjectHeader"
+                title="{ProductMd1>Name}"
+                number="{ProductMd1>Price}"
+                numberUnit="{ProductMd1>CurrencyCode}"
+                intro="{ProductMd1>ProductId}">
+
+                <attributes>
+
+                    <ObjectAttribute
+                        id="categoryAttribute"
+                        title="Category"
+                        text="{ProductMd1>Category}" />
+
+                    <ObjectAttribute
+                        id="mainCategoryAttribute"
+                        title="Main Category"
+                        text="{ProductMd1>MainCategory}" />
+
+                    <ObjectAttribute
+                        id="supplierAttribute"
+                        title="Supplier"
+                        text="{ProductMd1>SupplierName}" />
+
+                </attributes>
+
+                <statuses>
+
+                    <ObjectStatus
+                        id="productStatus"
+                        text="{ProductMd1>Status}" />
+
+                </statuses>
+
+            </ObjectHeader>
+
+            <Panel
+                id="descriptionPanel"
+                headerText="Description"
+                expandable="true"
+                expanded="true">
+
+                <Text
+                    id="descriptionText"
+                    text="{ProductMd1>Description}" />
+
+            </Panel>
+
+            <Panel
+                id="inventoryPanel"
+                headerText="Inventory"
+                expandable="true"
+                expanded="true">
+
+                <form:SimpleForm
+                    id="inventoryForm"
+                    editable="false">
+
+                    <Label
+                        id="quantityLabel"
+                        text="Quantity" />
+
+                    <Text
+                        id="quantityValue"
+                        text="{ProductMd1>Quantity}" />
+
+                    <Label
+                        id="uomLabel"
+                        text="Unit of Measure" />
+
+                    <Text
+                        id="uomValue"
+                        text="{ProductMd1>UoM}" />
+
+                    <Label
+                        id="statusLabel"
+                        text="Status" />
+
+                    <Text
+                        id="statusValue"
+                        text="{ProductMd1>Status}" />
+
+                </form:SimpleForm>
+
+            </Panel>
+
+            <Panel
+                id="supplierPanel"
+                headerText="Supplier Information"
+                expandable="true"
+                expanded="true">
+
+                <form:SimpleForm
+                    id="supplierForm"
+                    editable="false">
+
+                    <Label
+                        id="supplierNameLabel"
+                        text="Supplier" />
+
+                    <Text
+                        id="supplierNameValue"
+                        text="{ProductMd1>SupplierName}" />
+
+                    <Label
+                        id="taxLabel"
+                        text="Tax Tariff Code" />
+
+                    <Text
+                        id="taxValue"
+                        text="{ProductMd1>TaxTarifCode}" />
+
+                </form:SimpleForm>
+
+            </Panel>
+
+            <Panel
+                id="dimensionsPanel"
+                headerText="Dimensions &amp; Weight"
+                expandable="true"
+                expanded="true">
+
+                <form:SimpleForm
+                    id="dimensionsForm"
+                    editable="false">
+
+                    <Label
+                        id="weightLabel"
+                        text="Weight" />
+
+                    <Text
+                        id="weightValue"
+                        text="{ProductMd1>WeightMeasure} {ProductMd1>WeightUnit}" />
+
+                    <Label
+                        id="widthLabel"
+                        text="Width" />
+
+                    <Text
+                        id="widthValue"
+                        text="{ProductMd1>Width} {ProductMd1>DimUnit}" />
+
+                    <Label
+                        id="depthLabel"
+                        text="Depth" />
+
+                    <Text
+                        id="depthValue"
+                        text="{ProductMd1>Depth} {ProductMd1>DimUnit}" />
+
+                    <Label
+                        id="heightLabel"
+                        text="Height" />
+
+                    <Text
+                        id="heightValue"
+                        text="{ProductMd1>Height} {ProductMd1>DimUnit}" />
+
+                </form:SimpleForm>
+
+            </Panel>
+
+        </content>
+
+    </Page>
+
+</mvc:View>

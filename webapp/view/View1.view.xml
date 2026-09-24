@@ -1,0 +1,326 @@
+<mvc:View
+    controllerName="project1.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+
+    <Page
+        id="page"
+        title="Product Management">
+
+        <customHeader>
+            <OverflowToolbar id="mainToolbar">
+
+                <Title
+                    id="applicationTitle"
+                    text="Product Management"
+                    level="H2" />
+
+                <ToolbarSpacer id="mainToolbarSpacer" />
+
+                <Button
+                    id="themeButton"
+                    icon="sap-icon://light-mode"
+                    tooltip="Toggle Dark Mode"
+                    type="Transparent"
+                    press=".onToggleTheme" />
+
+            </OverflowToolbar>
+        </customHeader>
+
+        <content>
+
+            <!-- ================================================= -->
+            <!-- KPI CARDS -->
+            <!-- ================================================= -->
+
+            <HBox
+                id="kpiContainer"
+                class="kpiContainer"
+                justifyContent="SpaceBetween"
+                wrap="Wrap">
+
+                <VBox
+                    id="totalProductsCard"
+                    class="kpiCard">
+
+                    <Text
+                        id="totalProductsLabel"
+                        text="Total Products"
+                        class="kpiLabel" />
+
+                    <ObjectNumber
+                        id="totalProductsNumber"
+                        number="0"
+                        class="kpiNumber" />
+
+                </VBox>
+
+                <VBox
+                    id="availableProductsCard"
+                    class="kpiCard">
+
+                    <Text
+                        id="availableProductsLabel"
+                        text="Available"
+                        class="kpiLabel" />
+
+                    <ObjectNumber
+                        id="availableProductsNumber"
+                        number="0"
+                        state="Success"
+                        class="kpiNumber" />
+
+                </VBox>
+
+                <VBox
+                    id="outOfStockCard"
+                    class="kpiCard">
+
+                    <Text
+                        id="outOfStockLabel"
+                        text="Out of Stock"
+                        class="kpiLabel" />
+
+                    <ObjectNumber
+                        id="outOfStockNumber"
+                        number="0"
+                        state="Error"
+                        class="kpiNumber" />
+
+                </VBox>
+
+                <VBox
+                    id="categoriesCard"
+                    class="kpiCard">
+
+                    <Text
+                        id="categoriesLabel"
+                        text="Categories"
+                        class="kpiLabel" />
+
+                    <ObjectNumber
+                        id="categoriesNumber"
+                        number="0"
+                        class="kpiNumber" />
+
+                </VBox>
+
+            </HBox>
+
+
+            <!-- ================================================= -->
+            <!-- SEARCH / FILTER BAR -->
+            <!-- ================================================= -->
+
+            <OverflowToolbar
+                id="filterToolbar"
+                class="filterToolbar">
+
+                <SearchField
+                    id="productSearch"
+                    width="24rem"
+                    placeholder="Search products..."
+                    liveChange=".onSearch" />
+
+                <ToolbarSeparator
+                    id="searchSeparator" />
+
+                <Label
+                    id="statusFilterLabel"
+                    text="Status"
+                    labelFor="statusFilter" />
+
+                <Select
+                    id="statusFilter"
+                    width="11rem"
+                    change=".onStatusFilter">
+
+                    <items>
+
+                        <core:Item
+                            id="statusAllItem"
+                            key="ALL"
+                            text="All Statuses" />
+
+                        <core:Item
+                            id="statusAvailableItem"
+                            key="Available"
+                            text="Available" />
+
+                        <core:Item
+                            id="statusOutOfStockItem"
+                            key="Out of Stock"
+                            text="Out of Stock" />
+
+                        <core:Item
+                            id="statusDiscontinuedItem"
+                            key="Discontinued"
+                            text="Discontinued" />
+
+                    </items>
+
+                </Select>
+
+                <ToolbarSpacer
+                    id="filterToolbarSpacer" />
+
+                <Button
+                    id="sortButton"
+                    icon="sap-icon://sort"
+                    text="Sort"
+                    type="Transparent"
+                    press=".onSort" />
+
+                <Button
+                    id="resetButton"
+                    icon="sap-icon://refresh"
+                    text="Reset"
+                    type="Transparent"
+                    press=".onReset" />
+
+            </OverflowToolbar>
+
+
+            <!-- ================================================= -->
+            <!-- PRODUCT TABLE -->
+            <!-- ================================================= -->
+
+            <Table
+                id="productTable"
+                class="productTable"
+                items="{ProductMd1>/ProductCollection}"
+                growing="true"
+                growingThreshold="20"
+                growingScrollToLoad="true"
+                mode="None"
+                sticky="ColumnHeaders,HeaderToolbar"
+                noDataText="No products found">
+
+                <headerToolbar>
+
+                    <OverflowToolbar
+                        id="productToolbar">
+
+                        <Title
+                            id="productTitle"
+                            text="Products"
+                            level="H2" />
+
+                        <ToolbarSpacer
+                            id="productToolbarSpacer" />
+
+                        <Text
+                            id="resultCount"
+                            text="0 products"
+                            class="resultCount" />
+
+                    </OverflowToolbar>
+
+                </headerToolbar>
+
+
+                <columns>
+
+                    <Column id="productIdColumn">
+                        <Text
+                            id="productIdHeader"
+                            text="Product ID" />
+                    </Column>
+
+                    <Column id="productNameColumn">
+                        <Text
+                            id="productNameHeader"
+                            text="Product Name" />
+                    </Column>
+
+                    <Column id="categoryColumn">
+                        <Text
+                            id="categoryHeader"
+                            text="Category" />
+                    </Column>
+
+                    <Column id="supplierColumn">
+                        <Text
+                            id="supplierHeader"
+                            text="Supplier" />
+                    </Column>
+
+                    <Column id="priceColumn">
+                        <Text
+                            id="priceHeader"
+                            text="Price" />
+                    </Column>
+
+                    <Column id="statusColumn">
+                        <Text
+                            id="statusHeader"
+                            text="Status" />
+                    </Column>
+
+                    <Column id="quantityColumn">
+                        <Text
+                            id="quantityHeader"
+                            text="Quantity" />
+                    </Column>
+
+                </columns>
+
+
+                <items>
+
+                    <ColumnListItem
+                        id="productListItem"
+                        type="Navigation"
+                        press=".onItemPress">
+
+                        <cells>
+
+                            <Text
+                                id="productIdText"
+                                text="{ProductMd1>ProductId}" />
+
+                            <ObjectIdentifier
+                                id="productNameIdentifier"
+                                title="{ProductMd1>Name}"
+                                text="{ProductMd1>Category}" />
+
+                            <Text
+                                id="categoryText"
+                                text="{ProductMd1>Category}" />
+
+                            <Text
+                                id="supplierText"
+                                text="{ProductMd1>SupplierName}" />
+
+                            <ObjectNumber
+                                id="priceObjectNumber"
+                                number="{ProductMd1>Price}"
+                                unit="{ProductMd1>CurrencyCode}" />
+
+                            <ObjectStatus
+                                id="statusObjectStatus"
+                                text="{ProductMd1>Status}"
+                                state="{
+                                    path: 'ProductMd1>Status',
+                                    formatter: '.formatStatusState'
+                                }" />
+
+                            <ObjectNumber
+                                id="quantityObjectNumber"
+                                number="{ProductMd1>Quantity}"
+                                unit="{ProductMd1>UoM}" />
+
+                        </cells>
+
+                    </ColumnListItem>
+
+                </items>
+
+            </Table>
+
+        </content>
+
+    </Page>
+
+</mvc:View>
