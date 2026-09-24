@@ -1,95 +1,69 @@
-SAP-UI5-Utkarsh-Foundation
-A foundational SAP UI5 web application demonstrating core UI5 concepts, including routing, data binding, and the Model-View-Controller (MVC) architecture. This project uses modern UI5 tooling and serves as a robust starting point for building scalable enterprise applications.
-🚀 Key Features
-Master-Detail Navigation: Seamless routing between the primary product list (View1) and specific item details (ProductDetails).
-JSON Model Data Binding: Local data management utilizing a mock backend structure (Products.json) for rapid prototyping.
-MVC Architecture: Clean separation of concerns using XML views and JavaScript controllers.
-Internationalization (i18n): Configured for multi-language support and easily scalable text management.
-Modern UI5 Tooling: Fully integrated with ui5.yaml and package.json for streamlined dependency management and local development serving.
-Testing Suite: Scaffolding included for both Unit tests (QUnit) and Integration tests (OPA5).
-🛠️ Tech Stack
-Framework: SAP UI5 / OpenUI5
-Frontend: JavaScript, XML, HTML5, CSS
-Data Format: JSON
-Tooling: Node.js, UI5 CLI, ESLint
-📂 Project Structure
-t
-SAP-UI5-Utkarsh-Foundation/
-├── webapp/
-│   ├── controller/
-│   │   ├── App.controller.js            # Root application controller
-│   │   ├── View1.controller.js          # Master list controller
-│   │   └── ProductDetails.controller.js # Detail view controller
-│   ├── view/
-│   │   ├── App.view.xml                 # Root view container
-│   │   ├── View1.view.xml               # Master list view
-│   │   └── ProductDetails.view.xml      # Detail view
-│   ├── model/
-│   │   ├── models.js                    # Device/App model initialization
-│   │   └── Products.json                # Mock product data
-│   ├── i18n/
-│   │   ├── i18n.properties              # Default translation texts
-│   │   └── i18n_en.properties           # English translations
-│   ├── css/
-│   │   └── style.css                    # Custom application styling
-│   ├── test/                            # Unit and OPA5 integration tests
-│   ├── Component.js                     # Application component setup
-│   ├── index.html                       # Entry point
-│   └── manifest.json                    # Application descriptor (routing, models, data sources)
-├── package.json                         # Node dependencies and scripts
-├── ui5.yaml                             # UI5 tooling configuration
-└── ui5-local.yaml                       # Local UI5 development configuration
+# SAP UI5 Utkarsh Foundation
 
-## 💻 Installation & Setup
+A lightweight SAPUI5 foundation project for learning, prototyping, and building SAP Fiori applications. It is based on the SAP Fiori Application Generator and provides a clean starting point for UI5 development.
 
-### Prerequisites
+## Technology
 
-*   [Node.js](https://nodejs.org/) (version 18 or higher recommended)
+- SAPUI5 1.152.0
+- UI5 CLI 4
+- SAP Fiori tools
+- JavaScript
+- ESLint
+- `sap_horizon` theme
 
-*   Git
+## Prerequisites
 
-### Running Locally
+- Node.js LTS
+- npm
 
-1.  **Clone the repository:**
-
-    ```bash
-
-    git clone <span type="placeholder" placeholder-type="file"></span>
-
-    cd SAP-UI5-Utkarsh-Foundation
-
-    ```
-
-2.  **Install dependencies:**
-
-    ```bash
-
-    npm install
-
-    ```
-
-3.  **Start the development server:**
-
-    ```bash
-
-    npm start
-
-    ```
-
-    *The application will automatically open in your default browser at `http://localhost:8080/index.html`.*
-
-## 🧪 Testing
-
-To run the configured testing suites (QUnit and OPA5):
+## Getting started
 
 ```bash
+git clone https://github.com/ayushchauhan7/SAP-UI5-Utkarsh-Foundation.git
+cd SAP-UI5-Utkarsh-Foundation
+npm install
+npm start
 
-# Run unit tests
+The app opens in the SAP Fiori launchpad preview.
+Available commands
+Command	Description
+npm start	Run the application with the Fiori launchpad preview.
+npm run start-local	Run using the local UI5 configuration.
+npm run start-noflp	Run the application directly without the launchpad preview.
+npm run build	Create a production build in dist/.
+npm run lint	Run ESLint checks.
+npm run unit-test	Open the unit-test suite.
+npm run int-test	Open the integration-test suite.
+npm run deploy-config	Add deployment configuration.
+npm run deploy	Verify deployment configuration.
 
-npm run test:unit
+Project structure
 
-# Run integration tests
+.
+├── webapp/
+│   ├── Component.js       # Application component
+│   ├── index.html         # Application entry point
+│   ├── manifest.json      # Application descriptor
+│   ├── controller/        # UI controllers
+│   ├── view/              # XML views
+│   ├── model/             # Models and formatters
+│   ├── i18n/              # Translatable text resources
+│   ├── css/               # Custom styles
+│   └── test/              # Unit and integration tests
+├── ui5.yaml               # Standard UI5 tooling configuration
+├── ui5-local.yaml         # Local SAPUI5 development configuration
+├── package.json           # Scripts and development dependencies
+└── eslint.config.mjs      # Linting configuration
 
-npm run test:integration
-👤 Author
-Ayush Chauhan
+Development notes
+The project currently uses the generated module name project1 and application title App Title. Update these values in webapp/manifest.json, package.json, and the UI5 configuration files as the application takes shape.
+
+The local configuration loads SAPUI5 resources from the SAPUI5 CDN and uses the Horizon theme.
+
+Contributing
+1. Create a branch for your change.
+2. Make and test your changes locally.
+3. Run npm run lint.
+4. Open a pull request with a clear description.
+
+Made by Ayush Chauhan
